@@ -2,6 +2,7 @@
 <html  lang="en">
  <head>	
   <link rel="icon" href="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.ranklogos.com%2Fwp-content%2Fuploads%2F2016%2F09%2FTic-Tac-Toe-Logo-RK1219.png&f=1&nofb=1">
+  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">	
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe</title>	
@@ -20,132 +21,8 @@
        <div onclick="func(this)" class="box nine"></div>
     </section>
     <button onclick="restart()" id="btn">Restart</button>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box
-      }
-    
-      body {
-        height: 100vh;
-        place-content: center;
-        display: grid
-      }
-    
-      h3 {
-        text-align: center;
-        margin-bottom: 20px;
-        background-color: #000;
-        color: #fff;
-        padding: 2vw 0;
-        font-size: 1.5em;
-        font-family: monospace
-      }
-    
-      section {
-        font-family: sans-serif;
-        margin: auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 2px;
-        animation: animate 1s ease-in-out;
-        margin-bottom: 3em
-      }
-    
-      section * {
-        color: #fff;
-        width: 10vw;
-        min-width: 80px;
-        min-height: 80px;
-        height: 10vw;
-        display: grid;
-        place-content: center;
-        background-color: #2f5991;
-        transform-origin: center center;
-        transition: .1s ease-in;
-        font-size: 5vw;
-        cursor: pointer;
-        padding: none
-      }
-    
-      button {
-        padding: 10px 0;
-        cursor: pointer;
-        border: none;
-        background-color: #ff4b6f;
-        color: #f0f8ff;
-        font-family: sans-serif;
-        letter-spacing: 1px;
-        font-size: 18px;
-        border-radius: 80px
-      }
-    
-      div:hover {
-        background-color: #3c7fd8
-      }
-    
-      @keyframes animate {
-    
-        0%,
-        20% {
-          transform: rotateZ(180deg) scale(0);
-          opacity: .2;
-          grid-gap: 250px
-        }
-      }
-    
-      @media (max-width:650px) {
-        section div {
-          font-size: 32px
-        }
-      }
-    </style>
+   
   </body>
-  <script>
-    var cube = document.getElementsByClassName("box");
-    var count = 0;
-    var cross = '<i class="fa fa-times"></i>',
-        circle = '<i class="fa fa-circle"></i>'; 
-      function func(ths){
-      count++;
-      if (count%2==0) {
-        ths.innerHTML = 'x';
-        ths.accessKey = 1;  
-         
-      }
-       else {
-        ths.innerHTML ='o'
-        ths.accessKey = 0;  
-       
-      }
-      const a = parseInt(cube[0].accessKey);  
-      const b = parseInt(cube[1].accessKey); 
-      const c = parseInt(cube[2].accessKey);  
-      const d = parseInt(cube[3].accessKey);  
-      const e = parseInt(cube[4].accessKey);  
-      const f = parseInt(cube[5].accessKey);  
-      const g = parseInt(cube[6].accessKey);  
-      const h = parseInt(cube[7].accessKey);  
-      const i = parseInt(cube[8].accessKey);  
-      if(a+b+c == 3 || d+e+f == 3 || g+h+i == 3 || a+d+g == 3 || b+e+h== 3 || c+f+i == 3 || a+e+i == 3 ||c+e+g== 3){
-        alert('X wins!! ');
-      restart();
-       
-      }
-      else if(a+b+c == 0 || d+e+f == 0 || g+h+i == 0 || a+d+g == 0 || b+e+h== 0 || c+f+i == 0 || a+e+i == 0 ||c+e+g== 0){ 
-        alert('O wins!!  ');
-       restart();
-      }
-       else if(a+b+c+d+e+f+g+h+i){
-         alert("Its a Draw !!!");
-       restart();
-       }
-    }
-
-    function restart(){
-      window.location.reload();
-    }
-  </script>
+  <script src="index.js"></script>
  
 </html>
