@@ -63,7 +63,7 @@ div:hover {
     background-color: #3c7fd8;
 }
 .click-disable {
-    pointer-events: none;
+    pointer-events: none !important;
 }
 @keyframes animate {
     0%,
