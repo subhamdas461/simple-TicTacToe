@@ -1,80 +1,81 @@
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
 }
 
 body {
-  height: 100vh;
-  place-content: center;
-  display: grid
+    height: 100vh;
+    place-content: center;
+    display: grid;
 }
 
 h3 {
-  text-align: center;
-  margin-bottom: 20px;
-  background-color: #000;
-  color: #fff;
-  padding: 2vw 0;
-  font-size: 1.5em;
-  font-family: monospace
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #000;
+    color: #fff;
+    padding: 2vw 0;
+    font-size: 1.5em;
+    font-family: monospace;
 }
 
 section {
-  font-family: sans-serif;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2px;
-  animation: animate 1s ease-in-out;
-  margin-bottom: 3em
+    font-family: sans-serif;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2px;
+    animation: animate 1s ease-in-out;
+    margin-bottom: 3em;
 }
 
 section * {
-  color: #fff;
-  width: 10vw;
-  min-width: 80px;
-  min-height: 80px;
-  height: 10vw;
-  display: grid;
-  place-content: center;
-  background-color: #2f5991;
-  transform-origin: center center;
-  transition: .1s ease-in;
-  font-size: 5vw;
-  cursor: pointer;
-  padding: none
+    color: #fff;
+    width: 10vw;
+    min-width: 80px;
+    min-height: 80px;
+    height: 10vw;
+    display: grid;
+    place-content: center;
+    background-color: #2f5991;
+    transform-origin: center center;
+    transition: 0.1s ease-in;
+    font-size: 5vw;
+    cursor: pointer;
+    padding: none;
 }
 
 button {
-  padding: 10px 0;
-  cursor: pointer;
-  border: none;
-  background-color: #ff4b6f;
-  color: #f0f8ff;
-  font-family: sans-serif;
-  letter-spacing: 1px;
-  font-size: 18px;
-  border-radius: 80px
+    padding: 10px 0;
+    cursor: pointer;
+    border: none;
+    background-color: #ff4b6f;
+    color: #f0f8ff;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    font-size: 18px;
+    border-radius: 80px;
 }
 
 div:hover {
-  background-color: #3c7fd8
+    background-color: #3c7fd8;
 }
-
+.click-disable {
+    pointer-events: none;
+}
 @keyframes animate {
-
-  0%,
-  20% {
-    transform: rotateZ(180deg) scale(0);
-    opacity: .2;
-    grid-gap: 250px
-  }
+    0%,
+    20% {
+        transform: rotateZ(180deg) scale(0);
+        opacity: 0.2;
+        grid-gap: 250px;
+    }
 }
 
-@media (max-width:650px) {
-  section div {
-    font-size: 32px
-  }
+@media (max-width: 650px) {
+    section div {
+        font-size: 32px;
+    }
 }
