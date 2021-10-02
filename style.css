@@ -45,6 +45,7 @@ section * {
     font-size: 5vw;
     cursor: pointer;
     padding: none;
+    border-radius:8px;
 }
 
 button {
