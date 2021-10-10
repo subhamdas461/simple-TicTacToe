@@ -1,0 +1,18 @@
+Fixed:
+
+Changed font of X from lower case to upper case inside the box
+Removed the prompt for match result
+
+Feature:
+
+Added messages box for match result
+Added timeout feature to auto refresh when result announced after 4 seconds 
+
+
+Issues: 
+
+disable the click for remaining boxes after declaration of result
+
+To be done:
+
+New UI
