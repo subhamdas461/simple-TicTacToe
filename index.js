@@ -60,4 +60,4 @@ function func(ths) {
 
 function restart() {
     window.location.reload();
-}
+} 
