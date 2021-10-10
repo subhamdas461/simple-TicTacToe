@@ -1,15 +1,23 @@
 var cube = document.getElementsByClassName("box");
 var count = 0;
+let turn = 1;
 
 function func(ths) {
+    let playerTurn = document.getElementsByClassName("player_turn");
+    if (turn === 1)
+        playerTurn[0].innerHTML = "Player 2 Turn";
+    else if (turn === 2)
+        playerTurn[0].innerHTML = "Player 1 Turn"; ths.classList.add("click-disable");
     ths.classList.add("click-disable");
     count++;
     if (count % 2 == 0) {
         ths.innerHTML = "x";
         ths.accessKey = 1;
+        turn = 1;
     } else {
         ths.innerHTML = "O";
         ths.accessKey = 0;
+        turn = 2;
     }
     const a = parseInt(cube[0].accessKey);
     const b = parseInt(cube[1].accessKey);
@@ -52,4 +60,4 @@ function func(ths) {
 
 function restart() {
     window.location.reload();
-}
+} 
