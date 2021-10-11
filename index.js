@@ -1,23 +1,20 @@
 var cube = document.getElementsByClassName("box");
+let msg = document.getElementById("msg");
+let text = document.querySelector("p");
 var count = 0;
-let turn = 1;
 
-function func(ths) {
-    let playerTurn = document.getElementsByClassName("player_turn");
-    if (turn === 1)
-        playerTurn[0].innerHTML = "Player 2 Turn";
-    else if (turn === 2)
-        playerTurn[0].innerHTML = "Player 1 Turn"; ths.classList.add("click-disable");
+function func(ths)
+{
     ths.classList.add("click-disable");
     count++;
-    if (count % 2 == 0) {
-        ths.innerHTML = "x";
+    if (count % 2 == 0)
+    {
+        ths.innerHTML = "X";
         ths.accessKey = 1;
-        turn = 1;
-    } else {
+    } else
+    {
         ths.innerHTML = "O";
         ths.accessKey = 0;
-        turn = 2;
     }
     const a = parseInt(cube[0].accessKey);
     const b = parseInt(cube[1].accessKey);
@@ -37,9 +34,15 @@ function func(ths) {
         c + f + i == 3 ||
         a + e + i == 3 ||
         c + e + g == 3
-    ) {
-        alert("X wins!! ");
-        restart();
+    )
+    {
+        text.innerHTML = `✨🎇🎆 X won the match! 🎉🎊`;
+        msg.style.visibility = "visible";
+        setTimeout(() =>
+        {
+            restart();
+        }, 4000);
+
     } else if (
         a + b + c == 0 ||
         d + e + f == 0 ||
@@ -49,15 +52,27 @@ function func(ths) {
         c + f + i == 0 ||
         a + e + i == 0 ||
         c + e + g == 0
-    ) {
-        alert("O wins!!  ");
-        restart();
-    } else if (a + b + c + d + e + f + g + h + i) {
-        alert("Its a Draw !!!");
-        restart();
+    )
+    {
+        text.innerHTML = `✨🎇🎆 O won the match! 🎉🎊`;
+        msg.style.visibility = "visible";
+        setTimeout(() =>
+        {
+            restart();
+        }, 4000);
+    } else if (a + b + c + d + e + f + g + h + i)
+    {
+        text.innerHTML = `Match Draw !!!`;
+        msg.style.visibility = "visible";
+        setTimeout(() =>
+        {
+            restart();
+        }, 4000);
+
     }
 }
 
-function restart() {
+function restart()
+{
     window.location.reload();
-} 
+}
