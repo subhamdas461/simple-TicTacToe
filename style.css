@@ -44,19 +44,21 @@ section {
 
 section * {
     color: #fff;
-    width: 10vw;
+    width: 8vw;
+    height: 8vw;
     min-width: 80px;
     min-height: 80px;
-    height: 10vw;
     display: grid;
     place-content: center;
     background-color: #006eff;
     transform-origin: center center;
     transition: 0.1s ease-in;
-    font-size: 5vw;
+    font-size: 4vw;
     cursor: pointer;
     padding: none;
     border-radius: 8px;
+    /* max-width: 120px;
+    max-height: 120px; */
 }
 
 button {
@@ -86,14 +88,8 @@ button {
     }
 }
 
-@media (max-width: 650px) {
-    section div {
-        font-size: 32px;
-    }
-}
-
 /* Overlay for result display */
-#overlay{
+#overlay {
     position: fixed;
     display: none;
     width: 100%;
@@ -105,23 +101,23 @@ button {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
 }
-  
-#overlay-display{
+
+#overlay-display {
     position: absolute;
     top: 50%;
     left: 50%;
     font-size: 50px;
     color: white;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     text-align: center;
 }
 
-#result{
+#result {
     font-family: monospace;
 }
 
-#restart-btn{
+#restart-btn {
     background-color: rgb(25, 32, 32);
     border: 1px solid white;
     border-radius: 80px;
@@ -129,7 +125,16 @@ button {
     color: white;
     cursor: pointer;
 }
-  
-#restart-btn:hover{
+
+#restart-btn:hover {
     background-color: rgb(39, 39, 39);
+}
+
+/*----- Last block for media queries ------*/
+@media (max-width: 768px) {
+    section div {
+        font-size: 10vw;
+        width: 20vw;
+        height: 20vw;
+    }
 }
