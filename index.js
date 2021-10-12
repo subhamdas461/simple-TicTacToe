@@ -37,8 +37,9 @@ function func(ths) {
         a + e + i == 3 ||
         c + e + g == 3
     ) {
-        alert("X wins!! ");
-        restart();
+        //alert("X wins!! ");
+        document.getElementById("result").innerText = "Player 2 (X) wins!!";
+        on();
     } else if (
         a + b + c == 0 ||
         d + e + f == 0 ||
@@ -49,12 +50,18 @@ function func(ths) {
         a + e + i == 0 ||
         c + e + g == 0
     ) {
-        alert("O wins!!  ");
-        restart();
+        //alert("O wins!!  ");
+        document.getElementById("result").innerText = "Player 1 (O) wins!!";
+        on();
     } else if (a + b + c + d + e + f + g + h + i) {
-        alert("Its a Draw !!!");
-        restart();
+        //alert("Its a Draw !!!");
+        document.getElementById("result").innerText = "It's a Draw!!";
+        on();
     }
+}
+
+function on(){
+    document.getElementById("overlay").style.display = "block";
 }
 
 function restart() {
