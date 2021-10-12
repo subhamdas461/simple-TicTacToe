@@ -1,6 +1,4 @@
 var cube = document.getElementsByClassName("box");
-let msg = document.getElementById("msg");
-let text = document.querySelector("p");
 let section = document.querySelector("section");
 let btn = document.querySelector("#btn")
 var count = 0;
@@ -78,8 +76,6 @@ function func(ths)
         {
             restart();
         }, 4000);
-
-
     }
 }
 function restart() {
