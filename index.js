@@ -2,22 +2,22 @@ var cube = document.getElementsByClassName("box");
 let msg = document.getElementById("msg");
 let text = document.querySelector("p");
 let section = document.querySelector("section");
+let btn = document.querySelector("#btn")
 var count = 0;
 let turn = 1;
 
-function func(ths) {
-    let playerTurn = document.getElementsByClassName("player_turn");
-    if (turn === 1)
-        playerTurn[0].innerHTML = "Player 2 Turn";
-    else if (turn === 2)
-        playerTurn[0].innerHTML = "Player 1 Turn"; ths.classList.add("click-disable");
+function func(ths)
+{
+
     ths.classList.add("click-disable");
     count++;
-    if (count % 2 == 0) {
-        ths.innerHTML = "x";
+    if (count % 2 == 0)
+    {
+        ths.innerHTML = "X";
         ths.accessKey = 1;
         turn = 1;
-    } else {
+    } else
+    {
         ths.innerHTML = "O";
         ths.accessKey = 0;
         turn = 2;
@@ -59,11 +59,12 @@ function func(ths) {
         c + f + i == 0 ||
         a + e + i == 0 ||
         c + e + g == 0
+
     )
     {
         text.innerHTML = `✨🎇 O won the match! 🎉🎊`;
         msg.style.visibility = "visible";
-        section.style.pointerEvents = "none"
+        section.style.pointerEvents = "none";
         setTimeout(() =>
         {
             restart();
@@ -72,15 +73,15 @@ function func(ths) {
     {
         text.innerHTML = `Match Draw !!!`;
         msg.style.visibility = "visible";
-        section.style.pointerEvents = "none"
+        section.style.pointerEvents = "none";
         setTimeout(() =>
         {
             restart();
         }, 4000);
 
+
     }
 }
-
 function restart() {
-    window.location.reload();
-} 
+    document.location.reload();
+}
