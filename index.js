@@ -55,7 +55,7 @@ function func(ths) {
         on();
     } else if (a + b + c + d + e + f + g + h + i) {
         //alert("Its a Draw !!!");
-        document.getElementById("result").innerText = "It's a Draw!!";
+        document.getElementById("result").innerText = "It's a Draw🤡!!";
         on();
     }
 }
