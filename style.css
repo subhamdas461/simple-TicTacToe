@@ -3,19 +3,19 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+    
 }
 
 body {
     height: 100vh;
     place-content: center;
     display: grid;
-    background: url("https://images.squarespace-cdn.com/content/v1/5a2613f6be42d61192e3e478/1582999868688-PEVK3HU4FN1D9V5UDM4K/Screen+Shot+2020-02-29+at+1.07.46+PM.png?format=1000w");
+    background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu9Emq-CONr-gqO7vHg9H4nZX6pUHmBE-W-Q&usqp=CAU")
 }
-
 h3 {
     text-align: center;
     /*   margin-bottom: 20px; */
-    background-color: #000;
+    background-color:#150b3abd;
     color: #fff;
     padding: 2vw 0;
     font-size: 1.5em;
@@ -28,29 +28,28 @@ h3 {
     padding: 10px 0;
     margin: 20px 0;
     text-align: center;
-    color: rgb(73, 73, 160);
+    color: #150b3abd;
     background-color: rgba(255, 255, 255, 0.884);
 }
-
 section {
     font-family: sans-serif;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 4px;
+    grid-gap: 3px;
     animation: animate 1s ease-in-out;
     margin-bottom: 3em;
 }
 
 section * {
-    color: #fff;
-    width: 8vw;
-    height: 8vw;
-    min-width: 80px;
-    min-height: 80px;
+    color: rgb(241, 231, 231);
+    width: 7vw;
+    height: 7vw;
+    min-width: 70px;
+    min-height: 70px;
     display: grid;
     place-content: center;
-    background-color: #006eff;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc3Rs-ODgJNYlBv4UBAFhH9rS8tbbOQgP-vA&usqp=CAU");
     transform-origin: center center;
     transition: 0.1s ease-in;
     font-size: 4vw;
@@ -60,21 +59,16 @@ section * {
     /* max-width: 120px;
     max-height: 120px; */
 }
-
 button {
     padding: 10px 0;
     cursor: pointer;
     border: none;
-    background-color: #5ef141;
-    color: #423d3d;
+    background-color: #150b3abd;
+    color: #e9dada;
     font-family: sans-serif;
     letter-spacing: 1px;
     font-size: 18px;
     border-radius: 80px;
-}
-
-.box:hover {
-    background-color: #0052bd;
 }
 .click-disable {
     pointer-events: none !important;
@@ -87,7 +81,6 @@ button {
         grid-gap: 250px;
     }
 }
-
 /* Overlay for result display */
 #overlay {
     position: fixed;
