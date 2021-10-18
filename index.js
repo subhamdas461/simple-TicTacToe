@@ -1,21 +1,19 @@
 var cube = document.getElementsByClassName("box");
-let section = document.querySelector("section");
-let btn = document.querySelector("#btn")
 var count = 0;
 let turn = 1;
 
-function func(ths)
-{
-
+function func(ths) {
+    let playerTurn = document.getElementsByClassName("player_turn");
+    if (turn === 1) playerTurn[0].innerHTML = "Player 2 Turn";
+    else if (turn === 2) playerTurn[0].innerHTML = "Player 1 Turn";
+    ths.classList.add("click-disable");
     ths.classList.add("click-disable");
     count++;
-    if (count % 2 == 0)
-    {
+    if (count % 2 == 0) {
         ths.innerHTML = "X";
         ths.accessKey = 1;
         turn = 1;
-    } else
-    {
+    } else {
         ths.innerHTML = "O";
         ths.accessKey = 0;
         turn = 2;
@@ -38,16 +36,10 @@ function func(ths)
         c + f + i == 3 ||
         a + e + i == 3 ||
         c + e + g == 3
-    )
-    {
-        text.innerHTML = `✨🎇 X won the match! 🎉🎊`;
-        msg.style.visibility = "visible";
-        section.style.pointerEvents = "none"
-        setTimeout(() =>
-        {
-            restart();
-        }, 4000);
-
+    ) {
+        //alert("X wins!! ");
+        document.getElementById("result").innerText = "Player 2 (X) wins!!";
+        on();
     } else if (
         a + b + c == 0 ||
         d + e + f == 0 ||
@@ -57,27 +49,21 @@ function func(ths)
         c + f + i == 0 ||
         a + e + i == 0 ||
         c + e + g == 0
-
-    )
-    {
-        text.innerHTML = `✨🎇 O won the match! 🎉🎊`;
-        msg.style.visibility = "visible";
-        section.style.pointerEvents = "none";
-        setTimeout(() =>
-        {
-            restart();
-        }, 4000);
-    } else if (a + b + c + d + e + f + g + h + i)
-    {
-        text.innerHTML = `Match Draw !!!`;
-        msg.style.visibility = "visible";
-        section.style.pointerEvents = "none";
-        setTimeout(() =>
-        {
-            restart();
-        }, 4000);
+    ) {
+        //alert("O wins!!  ");
+        document.getElementById("result").innerText = "Player 1 (O) wins!!";
+        on();
+    } else if (a + b + c + d + e + f + g + h + i) {
+        //alert("Its a Draw !!!");
+        document.getElementById("result").innerText = "It's a Draw!!";
+        on();
     }
 }
+
+function on(){
+    document.getElementById("overlay").style.display = "block";
+}
+
 function restart() {
-    document.location.reload();
+    window.location.reload();
 }
