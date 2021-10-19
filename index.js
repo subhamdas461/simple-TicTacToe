@@ -37,6 +37,7 @@ function func(ths) {
         a + e + i == 3 ||
         c + e + g == 3
     ) {
+<<<<<<< HEAD
         if (a + b + c == 3) {
             document.querySelector(".one").style.backgroundColor = "#5ef141";
             document.querySelector(".two").style.backgroundColor = "#5ef141";
@@ -71,6 +72,8 @@ function func(ths) {
             document.querySelector(".seven").style.backgroundColor = "#5ef141";
         }
 
+=======
+>>>>>>> 1363942c1b3e06678fe32aeb9099108c60c092e5
         //alert("X wins!! ");
         document.getElementById("result").innerText = "Player 2 (X) wins!!";
         on();
@@ -87,6 +90,7 @@ function func(ths) {
         //alert("O wins!!  ");
         document.getElementById("result").innerText = "Player 1 (O) wins!!";
         on();
+<<<<<<< HEAD
 
         if (a + b + c == 3) {
             document.querySelector(".one").style.backgroundColor = "#5ef141";
@@ -121,6 +125,8 @@ function func(ths) {
             document.querySelector(".five").style.backgroundColor = "#5ef141";
             document.querySelector(".seven").style.backgroundColor = "#5ef141";
         }
+=======
+>>>>>>> 1363942c1b3e06678fe32aeb9099108c60c092e5
     } else if (a + b + c + d + e + f + g + h + i) {
         //alert("Its a Draw !!!");
         document.getElementById("result").innerText = "It's a Draw!!";
