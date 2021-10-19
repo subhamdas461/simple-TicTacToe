@@ -1,6 +1,7 @@
 var cube = document.getElementsByClassName("box");
 var count = 0;
 let turn = 1;
+let green = "#5ef141";
 
 function func(ths) {
     let playerTurn = document.getElementsByClassName("player_turn");
@@ -37,6 +38,40 @@ function func(ths) {
         a + e + i == 3 ||
         c + e + g == 3
     ) {
+        if (a + b + c == 3) {
+            cube[0].style.backgroundColor = green;
+            cube[1].style.backgroundColor = green;
+            cube[2].style.backgroundColor = green;
+        }else if(d + e + f == 3){
+            cube[3].style.backgroundColor = green;
+            cube[4].style.backgroundColor = green;
+            cube[5].style.backgroundColor = green;
+        }else if(g + h + i == 3){
+            cube[6].style.backgroundColor = green;
+            cube[7].style.backgroundColor = green;
+            cube[8].style.backgroundColor = green;
+        }else if(a + d + g == 3){
+            cube[0].style.backgroundColor = green;
+            cube[3].style.backgroundColor = green;
+            cube[6].style.backgroundColor = green;
+        }else if(b + e + h == 3){
+            cube[1].style.backgroundColor = green;
+            cube[4].style.backgroundColor = green;
+           cube[7].style.backgroundColor = green;
+        }else if(c + f + i == 3){
+            cube[2].style.backgroundColor = green;
+            cube[5].style.backgroundColor = green;
+            cube[8].style.backgroundColor = green;
+        }else if(a + e + i == 3){
+            cube[0].style.backgroundColor = green;
+            cube[4].style.backgroundColor = green;
+            cube[8].style.backgroundColor = green;
+        }else if(c + e + g == 3){
+            cube[2].style.backgroundColor = green;
+            cube[4].style.backgroundColor = green;
+            cube[6].style.backgroundColor = green;
+        }
+
         //alert("X wins!! ");
         document.getElementById("result").innerText = "Player 2 (X) wins!!";
         on();
@@ -53,6 +88,40 @@ function func(ths) {
         //alert("O wins!!  ");
         document.getElementById("result").innerText = "Player 1 (O) wins!!";
         on();
+
+        if (a + b + c == 0) {
+            cube[0].style.backgroundColor = green;
+            cube[1].style.backgroundColor = green;
+            cube[2].style.backgroundColor = green;
+        }else if(d + e + f == 0){
+            cube[3].style.backgroundColor = green;
+            cube[4].style.backgroundColor = green;
+            cube[5].style.backgroundColor = green;
+        }else if(g + h + i == 0){
+            cube[6].style.backgroundColor = green;
+            cube[7].style.backgroundColor = green;
+            cube[8].style.backgroundColor = green;
+        }else if(a + d + g == 0){
+            cube[0].style.backgroundColor = green;
+            cube[3].style.backgroundColor = green;
+            cube[6].style.backgroundColor = green;
+        }else if(b + e + h == 0){
+            cube[1].style.backgroundColor = green;
+            cube[4].style.backgroundColor = green;
+           cube[7].style.backgroundColor = green;
+        }else if(c + f + i == 0){
+            cube[2].style.backgroundColor = green;
+            cube[5].style.backgroundColor = green;
+            cube[8].style.backgroundColor = green;
+        }else if(a + e + i == 0){
+            cube[0].style.backgroundColor = green;
+            cube[4].style.backgroundColor = green;
+            cube[8].style.backgroundColor = green;
+        }else if(c + e + g == 0){
+            cube[2].style.backgroundColor = green;
+            cube[4].style.backgroundColor = green;
+            cube[6].style.backgroundColor = green;
+        }
     } else if (a + b + c + d + e + f + g + h + i) {
         //alert("Its a Draw !!!");
         document.getElementById("result").innerText = "It's a Draw!!";
