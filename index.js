@@ -1,6 +1,7 @@
 var cube = document.getElementsByClassName("box");
 var count = 0;
-let turn = green = "#5ef141";
+let turn = 1;
+let green = "#5ef141";
 
 function func(ths) {
     let playerTurn = document.getElementsByClassName("player_turn");
