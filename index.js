@@ -133,9 +133,16 @@ function on(){
     document.getElementById("overlay").style.display = "block";
 }
 
-// Reseting the game after users confirmation
-function restart() {
+// Resets inmediatly the game if the user has finished. If not it will ask
+// for a confirmation alert
+function restart(isGameFinished) {
+    if (isGameFinished) { return reloadWindow() }
+
     if (confirm('Are you sure yo want to restart the game?')) {
         window.location.reload();
     }
+}
+
+function reloadWindow() {
+    window.location.reload();
 }
