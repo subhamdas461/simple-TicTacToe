@@ -133,6 +133,9 @@ function on(){
     document.getElementById("overlay").style.display = "block";
 }
 
+// Reseting the game after users confirmation
 function restart() {
-    window.location.reload();
+    if (confirm('Are you sure yo want to restart the game?')) {
+        window.location.reload();
+    }
 }
