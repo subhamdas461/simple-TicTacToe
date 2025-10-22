@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link
-            rel="icon"
-            href="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.ranklogos.com%2Fwp-content%2Fuploads%2F2016%2F09%2FTic-Tac-Toe-Logo-RK1219.png&f=1&nofb=1"
-        />
-        <link rel="stylesheet" href="style.css" />
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Tic-Tac-Toe</title>
-    </head>
-    <body>
-        <h3 id="headline">Tic-Tac-Toe</h3>
-        <br/>
+  <head>
+    <link
+      rel="icon"
+      href="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.ranklogos.com%2Fwp-content%2Fuploads%2F2016%2F09%2FTic-Tac-Toe-Logo-RK1219.png&f=1&nofb=1"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
+  </head>
+  <body>
+    <h3 id="headline">Tic-Tac-Toe</h3>
+    <br />
 
-<!-- Mode selection -->
-<input type="radio" id="pvp" name="mode" value="pvp" checked onclick="mode='pvp'; restart(false)">
-<label for="pvp">Player vs Player</label>
+    <!-- Mode selection -->
+    <input
+      type="radio"
+      id="pvp"
+      name="mode"
+      value="pvp"
+      checked
+      onclick="mode='pvp'; restart(false)"
+    />
+    <label for="pvp">Player vs Player</label>
 
-<input type="radio" id="pvc" name="mode" value="pvc" onclick="mode='pvc'; restart(false)">
-<label for="pvc">Player vs Computer</label>
+    <input
+      type="radio"
+      id="pvc"
+      name="mode"
+      value="pvc"
+      onclick="mode='pvc'; restart(false)"
+    />
+    <label for="pvc">Player vs Computer</label>
 
-
-<h2 class="player_turn">Player 1 Turn</h2>
-<section>
-    <div onclick="func(this)" class="box one"></div>
-    <div onclick="func(this)" class="box two"></div>
-    <div onclick="func(this)" class="box three"></div>
-    <div onclick="func(this)" class="box four"></div>
-    <div onclick="func(this)" class="box five"></div>
-    <div onclick="func(this)" class="box six"></div>
-    <div onclick="func(this)" class="box seven"></div>
-    <div onclick="func(this)" class="box eight"></div>
-    <div onclick="func(this)" class="box nine"></div>
-</section>
+    <h2 class="player_turn">Player 1 Turn</h2>
+    <section id="board">
+      <div onclick="func(this)" class="box one"></div>
+      <div onclick="func(this)" class="box two"></div>
+      <div onclick="func(this)" class="box three"></div>
+      <div onclick="func(this)" class="box four"></div>
+      <div onclick="func(this)" class="box five"></div>
+      <div onclick="func(this)" class="box six"></div>
+      <div onclick="func(this)" class="box seven"></div>
+      <div onclick="func(this)" class="box eight"></div>
+      <div onclick="func(this)" class="box nine"></div>
+    </section>
+    <!-- Main board restart button -->
 <button onclick="restart(false)" id="btn">Restart</button>
 
+<!-- Popup overlay restart button -->
 <div id="overlay">
     <div id="overlay-display">
         <p id="result">Result</p>
@@ -43,6 +57,6 @@
     </div>
 </div>
 
-    </body>
-    <script src="index.js"></script>
+  </body>
+  <script src="index.js"></script>
 </html>

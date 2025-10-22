@@ -9,7 +9,16 @@ body {
     height: 100vh;
     place-content: center;
     display: grid;
+      overflow: hidden; /* prevent scrolling */
     background: url("https://images.squarespace-cdn.com/content/v1/5a2613f6be42d61192e3e478/1582999868688-PEVK3HU4FN1D9V5UDM4K/Screen+Shot+2020-02-29+at+1.07.46+PM.png?format=1000w");
+}
+
+#board {
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
 }
 
 h3 {

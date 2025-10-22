@@ -1,41 +1,30 @@
 let mode = "pvp"; // "pvp" = player vs player, "pvc" = player vs computer
-
-var cube = document.getElementsByClassName("box");
-var count = 0;
+let cube = document.getElementsByClassName("box");
+let count = 0;
 let turn = 1;
 let green = "#5ef141";
-let humanVsComputer = true; // Set to true for human vs computer
-let human = 0; // O
-let computer = 1; // X
 let humanMoves = [];
 let computerMoves = [];
 let magicSquare = [8, 1, 6, 3, 5, 7, 4, 9, 2]; // Magic square mapping
 
+// Disable mode selection after the first click
+let gameStarted = false;
+
 function func(ths) {
+    if (!gameStarted) {
+        // Disable mode selection radios
+        document.querySelectorAll('input[name="mode"]').forEach(r => r.disabled = true);
+        gameStarted = true;
+    }
+
     if (ths.textContent) return; // Already clicked
 
     if (mode === "pvp") {
-        // Two-player logic
-        let playerTurn = document.getElementsByClassName("player_turn");
-        ths.classList.add("click-disable");
-        count++;
-        if (count % 2 === 0) {
-            ths.innerHTML = "X";
-            ths.accessKey = 1;
-            turn = 1;
-        } else {
-            ths.innerHTML = "O";
-            ths.accessKey = 0;
-            turn = 2;
-        }
-        playerTurn[0].innerHTML = turn === 1 ? "Player 2 Turn" : "Player 1 Turn";
-        checkResult();
+        twoPlayerMove(ths);
     } else if (mode === "pvc") {
-        // Player vs Computer logic
-        playerMove(ths); // your existing playerMove function
+        playerMove(ths);
     }
 }
-
 
 function twoPlayerMove(ths) {
     let playerTurn = document.getElementsByClassName("player_turn");
@@ -43,24 +32,21 @@ function twoPlayerMove(ths) {
     count++;
 
     if (count % 2 !== 0) { 
-        // Player 1 (O) moves
+        // Player 1 (O)
         ths.innerHTML = "O";
         ths.accessKey = 0;
-        playerTurn[0].innerHTML = "Player 2 Turn"; // next turn
+        playerTurn[0].innerHTML = "Player 2 Turn";
     } else { 
-        // Player 2 (X) moves
+        // Player 2 (X)
         ths.innerHTML = "X";
         ths.accessKey = 1;
-        playerTurn[0].innerHTML = "Player 1 Turn"; // next turn
+        playerTurn[0].innerHTML = "Player 1 Turn";
     }
 
     checkResult();
 }
 
-
-
 function playerMove(ths) {
-    // Human move
     ths.innerHTML = "O";
     ths.accessKey = 0;
     ths.classList.add("click-disable");
@@ -69,15 +55,12 @@ function playerMove(ths) {
     count++;
 
     if (checkWin(humanMoves)) {
-        document.getElementById("result").innerText = "Human (O) wins!!";
-        highlightWin(humanMoves);
-        on();
+        endGame("Human (O) wins!!", humanMoves);
         return;
     }
 
     if (count === 9) {
-        document.getElementById("result").innerText = "It's a Draw!!";
-        on();
+        endGame("It's a Draw!!");
         return;
     }
 
@@ -93,65 +76,45 @@ function computerMove() {
     count++;
 
     if (checkWin(computerMoves)) {
-        document.getElementById("result").innerText = "Computer (X) wins!!";
-        highlightWin(computerMoves);
-        on();
+        endGame("Computer (X) wins!!", computerMoves);
         return;
     }
 
     if (count === 9) {
-        document.getElementById("result").innerText = "It's a Draw!!";
-        on();
+        endGame("It's a Draw!!");
         return;
     }
 }
 
 function findBestMove() {
-    // 1. Win if possible
     for (let i = 0; i < 9; i++) {
-        if (!cube[i].textContent) {
-            let test = computerMoves.concat(magicSquare[i]);
-            if (checkWin(test)) return i;
-        }
+        if (!cube[i].textContent && checkWin(computerMoves.concat(magicSquare[i]))) return i;
     }
-    // 2. Block human
     for (let i = 0; i < 9; i++) {
-        if (!cube[i].textContent) {
-            let test = humanMoves.concat(magicSquare[i]);
-            if (checkWin(test)) return i;
-        }
+        if (!cube[i].textContent && checkWin(humanMoves.concat(magicSquare[i]))) return i;
     }
-    // 3. Take center
     if (!cube[4].textContent) return 4;
-    // 4. Take corners
     const corners = [0, 2, 6, 8];
-    for (let c of corners) {
-        if (!cube[c].textContent) return c;
-    }
-    // 5. Take any
-    for (let i = 0; i < 9; i++) {
-        if (!cube[i].textContent) return i;
-    }
+    for (let c of corners) if (!cube[c].textContent) return c;
+    for (let i = 0; i < 9; i++) if (!cube[i].textContent) return i;
 }
 
+// Common win checker
 function checkWin(moves) {
     if (moves.length < 3) return false;
-    for (let i = 0; i < moves.length; i++) {
-        for (let j = i + 1; j < moves.length; j++) {
-            for (let k = j + 1; k < moves.length; k++) {
+    for (let i = 0; i < moves.length; i++)
+        for (let j = i + 1; j < moves.length; j++)
+            for (let k = j + 1; k < moves.length; k++)
                 if (moves[i] + moves[j] + moves[k] === 15) return true;
-            }
-        }
-    }
     return false;
 }
 
+// Highlight winning combination
 function highlightWin(moves) {
-    // Highlight the winning combination
     const winCombos = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8],
-        [0, 3, 6], [1, 4, 7], [2, 5, 8],
-        [0, 4, 8], [2, 4, 6]
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[2,4,6]
     ];
     for (let combo of winCombos) {
         let sum = combo.reduce((acc, idx) => {
@@ -166,49 +129,69 @@ function highlightWin(moves) {
     }
 }
 
+// Common result checker for PvP
 function checkResult() {
     const keys = Array.from(cube).map(c => parseInt(c.accessKey));
     const combos = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8],
-        [0, 3, 6], [1, 4, 7], [2, 5, 8],
-        [0, 4, 8], [2, 4, 6]
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[2,4,6]
     ];
 
     for (let combo of combos) {
         const sum = combo.reduce((a, idx) => a + keys[idx], 0);
         if (sum === 3) {
             combo.forEach(idx => cube[idx].style.backgroundColor = green);
-            document.getElementById("result").innerText = "Player 2 (X) wins!!";
-            on();
+            endGame("Player 2 (X) wins!!");
             return;
         } else if (sum === 0) {
             combo.forEach(idx => cube[idx].style.backgroundColor = green);
-            document.getElementById("result").innerText = "Player 1 (O) wins!!";
-            on();
+            endGame("Player 1 (O) wins!!");
             return;
         }
     }
 
-    if (keys.every(k => k === 0 || k === 1)) {
-        document.getElementById("result").innerText = "It's a Draw!!";
-        on();
+    if (keys.every(k => k === 0 || k === 1) && count === 9) {
+        endGame("It's a Draw!!");
     }
 }
 
-function on() {
+// Show overlay and stop further moves
+function endGame(message, winningMoves=[]) {
+    document.getElementById("result").innerText = message;
+    if (winningMoves.length) highlightWin(winningMoves);
     document.getElementById("overlay").style.display = "block";
+
+    // Disable all remaining cubes
+    Array.from(cube).forEach(c => c.classList.add("click-disable"));
 }
 
-//Reset the game
-function restartGame(selectedMode) {
-    if (confirm('Are you sure you want to restart the game?')) {
-        mode = selectedMode;
-        window.location.reload();
-    } else {
-        // Revert the radio selection visually if user cancels
-        document.getElementById(mode).checked = true;
+// Restart the game properly
+function restart(fromOverlay) {
+    // Reset variables
+    count = 0;
+    turn = 1;
+    humanMoves = [];
+    computerMoves = [];
+    gameStarted = false;
+
+    // Clear the board
+    Array.from(cube).forEach(c => {
+        c.textContent = "";
+        c.accessKey = "";
+        c.classList.remove("click-disable");
+        c.style.backgroundColor = "";
+    });
+
+    // Reset player turn display
+    document.getElementsByClassName("player_turn")[0].innerText = "Player 1 Turn";
+
+    // Hide overlay if restart is from popup
+    if (fromOverlay) {
+        document.getElementById("overlay").style.display = "none";
     }
+
+    // Re-enable mode selection
+    document.querySelectorAll('input[name="mode"]').forEach(r => r.disabled = false);
 }
-function reloadWindow() {
-    window.location.reload();
-}
+
