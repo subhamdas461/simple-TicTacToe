@@ -88,6 +88,37 @@ button {
     }
 }
 
+/* Hide the native radio buttons */
+input[type="radio"] {
+  display: none;
+}
+
+/* Base style for the labels (buttons) */
+label {
+  background-color: #006eff; /* blue */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background-color 0.3s, transform 0.1s;
+  user-select: none;
+}
+
+/* Hover effect */
+label:hover {
+  background-color: #0057cc;
+}
+
+/* Active (clicked) effect */
+label:active {
+  transform: scale(0.97);
+}
+
+/* Selected (checked) radio button */
+input[type="radio"]:checked + label {
+  background-color: #00b33c; /* green when selected */
+}
 /* Overlay for result display */
 #overlay {
     position: fixed;
